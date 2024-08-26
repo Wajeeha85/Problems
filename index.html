@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //      Problem 1: Deep Clone with Spread
+      // Write a function that creates a deep clone of a nested object using the spread operator. The function should be able to handle objects with various levels of nesting.
+
+      const Students = {
+        Student1: {
+          RollNumber: "01",
+          Section: "A",
+          Subject: "Biology",
+        },
+
+        Student2: {
+          RollNumber: "02",
+          Section: "B",
+          Subject: "Math",
+        },
+        Student3: {
+          RollNumber: "03",
+          Section: "C",
+          Subject: "Computer",
+        },
+      };
+
+      console.log(Students);
+      //  Problem 2: Merging Objects with Spread
+      // Create a function that takes an arbitrary number of objects as arguments and returns a single object that is a merge of all input objects. Use the spread operator for this task.
+
+      const user1 = { user1: ["John", "Alice", "Sam"] };
+      const user2 = { user2: ["Daniel", "Rea", "Alex", "Leo"] };
+
+      function merging(...users) {
+        return Object.assign({}, ...users);
+      }
+
+      const result = merging(user1, user2);
+      console.log(result);
+
+      // Problem 3: Immutable Update with Spread
+      // Implement an update function that takes an object and a set of changes as key-value pairs. The function should return a new object with the specified changes while keeping the original object unchanged. Use the spread operator to achieve immutability.
+
+      const object1 = {
+        name: "wajeeha",
+        id: "02",
+        city: "Lahore",
+      };
+
+      const update = {
+        id: "03",
+        city: "islamabad",
+      };
+      function Immutable(obj, updates) {
+        return { ...obj, ...updates };
+      }
+
+      const updateObject = Immutable(object1, update);
+
+      console.log(
+        "here is original object",
+        object1,
+        "and here is updated object",
+        updateObject
+      );
+
+      console.log();
+
+      // Problem 4: Extract and Rename with Object Destructuring
+      // Given an object with complex nesting, write a destructuring statement that extracts a deeply nested property and assigns it to a new variable with a different name.
+
+      let person = {
+        name: "john",
+        lastName: "Doe",
+        age: "24",
+        education: {
+          degree: "Bachelor",
+        },
+      };
+
+      let {
+        name,
+        lastName,
+        age,
+        education: { degree: personDegree },
+      } = person;
+      console.log(`persons education is  ${personDegree}`);
+
+      // Problem 5: Function Parameter Destructuring
+      // Create a function that takes an object with several properties as a parameter. Use destructuring to extract only the necessary properties and ignore the rest.
+
+      function Employee({ name, age }) {
+        console.log(`Name: ${name}, Age: ${age}`);
+      }
+
+      const information = {
+        name: "Alex",
+        age: "32",
+        email: "",
+      };
+      Employee(information);
+
+      // Problem 6: Extract Nested Array with Destructuring
+      // Given an array of objects, each containing an array property, write a destructuring statement that extracts the nested arrays into a new array.
+
+      const data = [
+        { languages: ["HTML", "CSS"] },
+        { languages: ["JavaScript", "Bootstrap"] },
+      ];
+      let array = data.map(({ languages }) => languages);
+      console.log(array);
+
+      // Problem 7: Rest Property and Spread Property
+      // Write a function that takes an object as a parameter and separates its properties into two objects: one with specific properties and another with the rest of the properties. Use the rest property and spread property in your solution.
+      function takeObject(obj) {}
+      // Problem 8: Merging Arrays with Spread
+      // Create a function that takes multiple arrays as arguments and returns a new array containing all the elements from the input arrays, using the spread operator.
+
+      const array1 = ["Student1", "Student2"];
+      const array2 = ["Student3", "Student4"];
+
+      function merArrays(...arrays) {
+        return [].concat(...arrays);
+      }
+
+      const arrResult = merArrays(array1, array2);
+
+      console.log("New array: ", arrResult);
+
+      //   Problem 9: Dynamic Object Property Assignment
+      // Implement a function that takes an object, a property name, and a value, and returns a new object with the specified property name and value. Use object destructuring and the spread operator.
+
+      const object = { car: 1 };
+      const property = "A";
+      const value = 2;
+      function newObject(obj, propertyName, value) {
+        return { ...obj, propertyName, value };
+      }
+
+      const output = newObject(object, property, value);
+      console.log("new properties are", output);
+
+      //       Problem 10: Nested Object Destructuring with Defaults
+      // Given a deeply nested object, write a destructuring statement that extracts a property with a default value if it doesn't exist at any level of nesting.
+
+      const information1 = {
+        user: {
+          profile: {
+            identity: "John Doe",
+            address: {
+              city: "New York",
+              country: "USA",
+            },
+          },
+        },
+      };
+
+      const {
+        user: {
+          profile: {
+            address: { city = "New Yor" },
+          },
+        },
+      } = information1;
+
+      console.log("here is city", city);
+    </script>
+  </body>
+</html>
