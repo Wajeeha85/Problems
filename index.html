@@ -33,38 +33,31 @@
       //  Problem 2: Merging Objects with Spread
       // Create a function that takes an arbitrary number of objects as arguments and returns a single object that is a merge of all input objects. Use the spread operator for this task.
 
-      const user1 = { user1: ["John", "Alice", "Sam"] };
-      const user2 = { user2: ["Daniel", "Rea", "Alex", "Leo"] };
+      const obj1 = { a: 1, b: 2 };
+      const obj2 = { b: 3, c: 4 };
+      const obj3 = { d: 5 };
 
-      function merging(...users) {
-        return Object.assign({}, ...users);
+      function mergeObjectsWithSpread(...objects) {
+        return Object.assign({}, ...objects);
       }
+      const mergedObj = mergeObjectsWithSpread(obj1, obj2, obj3);
 
-      const result = merging(user1, user2);
-      console.log(result);
+      console.log(mergedObj);
 
       // Problem 3: Immutable Update with Spread
       // Implement an update function that takes an object and a set of changes as key-value pairs. The function should return a new object with the specified changes while keeping the original object unchanged. Use the spread operator to achieve immutability.
 
-      const object1 = {
-        name: "wajeeha",
-        id: "02",
-        city: "Lahore",
-      };
-
-      const update = {
-        id: "03",
-        city: "islamabad",
-      };
+      const originalObj = { a: 1, b: 2, c: 3 };
+      const changes = { b: 4, d: 5 };
       function Immutable(obj, updates) {
         return { ...obj, ...updates };
       }
 
-      const updateObject = Immutable(object1, update);
+      const updateObject = Immutable(originalObj, changes);
 
       console.log(
         "here is original object",
-        object1,
+        originalObj,
         "and here is updated object",
         updateObject
       );
@@ -94,16 +87,21 @@
       // Problem 5: Function Parameter Destructuring
       // Create a function that takes an object with several properties as a parameter. Use destructuring to extract only the necessary properties and ignore the rest.
 
-      function Employee({ name, age }) {
+      function functionParameterDestructuring({
+        necessaryProp1,
+        necessaryPro2,
+      }) {
         console.log(`Name: ${name}, Age: ${age}`);
       }
 
-      const information = {
-        name: "Alex",
-        age: "32",
-        email: "",
+      const fullObj = {
+        necessaryProp1: "value1",
+        necessaryProp2: "value2",
+        unnecessaryProp1: "ignore1",
+        unnecessaryProp2: "ignore2",
       };
-      Employee(information);
+
+      functionParameterDestructuring(fullObj);
 
       // Problem 6: Extract Nested Array with Destructuring
       // Given an array of objects, each containing an array property, write a destructuring statement that extracts the nested arrays into a new array.
