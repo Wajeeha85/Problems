@@ -123,8 +123,13 @@
         prop3: "value3",
         prop4: "value4",
       };
-      function separateProperties(sampleObj) {}
-      const { selectedProps, restProps } = separateProperties(sampleObj);
+      function separateProperties(sampleObj) {
+        const { prop3, ...restProps } = sampleObj;
+
+        return { prop3, restProps };
+      }
+      const { prop3, restProps } = separateProperties(sampleObj);
+      console.log(prop3, restProps, "hhh");
       // Problem 8: Merging Arrays with Spread
       // Create a function that takes multiple arrays as arguments and returns a new array containing all the elements from the input arrays, using the spread operator.
 
