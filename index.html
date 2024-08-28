@@ -87,13 +87,6 @@
       // Problem 5: Function Parameter Destructuring
       // Create a function that takes an object with several properties as a parameter. Use destructuring to extract only the necessary properties and ignore the rest.
 
-      function functionParameterDestructuring({
-        necessaryProp1,
-        necessaryPro2,
-      }) {
-        console.log(`Name: ${name}, Age: ${age}`);
-      }
-
       const fullObj = {
         necessaryProp1: "value1",
         necessaryProp2: "value2",
@@ -101,21 +94,37 @@
         unnecessaryProp2: "ignore2",
       };
 
-      functionParameterDestructuring(fullObj);
+      function parameterDestructuring(fullObj) {
+        const { necessaryProp1, necessaryProp2 } = fullObj;
+
+        console.log(necessaryProp1, necessaryProp2);
+      }
+      parameterDestructuring(fullObj);
 
       // Problem 6: Extract Nested Array with Destructuring
       // Given an array of objects, each containing an array property, write a destructuring statement that extracts the nested arrays into a new array.
 
-      const data = [
-        { languages: ["HTML", "CSS"] },
-        { languages: ["JavaScript", "Bootstrap"] },
+      const arrayOfObjects = [
+        { id: 1, items: [1, 2, 3] },
+        { id: 2, items: [4, 5, 6] },
+        { id: 3, items: [7, 8, 9] },
       ];
-      let array = data.map(({ languages }) => languages);
-      console.log(array);
-
+      function extractNestedArray() {
+        let array = arrayOfObjects.map(({ items }) => items);
+        console.log(array);
+      }
+      const nestedArrays = extractNestedArray(arrayOfObjects);
+      console.log(nestedArrays);
       // Problem 7: Rest Property and Spread Property
       // Write a function that takes an object as a parameter and separates its properties into two objects: one with specific properties and another with the rest of the properties. Use the rest property and spread property in your solution.
-      function takeObject(obj) {}
+      const sampleObj = {
+        prop1: "value1",
+        prop2: "value2",
+        prop3: "value3",
+        prop4: "value4",
+      };
+      function separateProperties(sampleObj) {}
+      const { selectedProps, restProps } = separateProperties(sampleObj);
       // Problem 8: Merging Arrays with Spread
       // Create a function that takes multiple arrays as arguments and returns a new array containing all the elements from the input arrays, using the spread operator.
 
